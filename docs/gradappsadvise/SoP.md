@@ -6,7 +6,8 @@ categories: grad-apps
 ---
 
 Work in Progress ...
-<!---
+
+<div style="display:none">
 Hey there!
 
 I'm working on this post where I will describe
@@ -19,6 +20,7 @@ Things I will try to cover:
 4. What an SoP `should not have`?
 5. Other Links to "How to write a SoP", tips/tricks, tutorials, and guides.
 
-Progress: ![5%](https://progress-bar.dev/5) -->
+Progress: ![5%](https://progress-bar.dev/5)
+</div>
 
 

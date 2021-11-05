@@ -23,3 +23,5 @@ diverse experiences in research, academia, tech, travel, and life.
 [My GitHub](https://github.com/manishshettym){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
+
+# Recent Posts
