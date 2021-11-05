@@ -24,4 +24,6 @@ diverse experiences in research, academia, tech, travel, and life.
 
 ---
 
-# Recent Posts
+## Recent/Upcoming Posts
+
+1. [The Statement of Purpose](/blog/docs/gradappsadvise/SoP.html)
