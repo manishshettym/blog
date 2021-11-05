@@ -81,15 +81,20 @@ color_scheme: nil
 ## COLLECTIONS
 
 # Define Jekyll collections
-collections:
-  gradappsadvise:
-    permalink: "/:collection/:path/"
-    output: true    
+# collections:
+#   docs:
+#     permalink: "/:collection/:path/"
+#     output: true
+#   gradappsadvise:
+#     permalink: "/:collection/:path/"
+#     output: true    
 
-just_the_docs:
-  collections:    
-    gradappsadvise:
-      name: Grad School Applications
+# just_the_docs:
+#   collections:
+#     docs:
+#       name: Documentation    
+#     gradappsadvise:
+#       name: Grad School Applications
 
 
 # Exclude from processing.
