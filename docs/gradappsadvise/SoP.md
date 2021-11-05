@@ -6,7 +6,8 @@ categories: grad-apps
 ---
 
 Work in Progress ...
-<!-- Hey there!
+<!---
+Hey there!
 
 I'm working on this post where I will describe
 my experience with writing a statement of purpose.
