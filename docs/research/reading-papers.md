@@ -1,8 +1,8 @@
 ---
 layout: default
-title:  "The Statement of Purpose"
-parent: Grad School Applications
-categories: grad-apps
+title:  "Reading Research Papers"
+parent: Research
+categories: research
 ---
 
 Work in Progress ...

@@ -3,6 +3,7 @@ layout: default
 title:  "The Statement of Purpose"
 parent: Grad School Applications
 categories: grad-apps
+published: false
 ---
 
 Work in Progress ...
@@ -10,8 +11,7 @@ Work in Progress ...
 <div style="display:none">
 Hey there!
 
-I'm working on this post where I will describe
-my experience with writing a statement of purpose.
+I'm working on this post where I will describe my experience with writing a statement of purpose.
 Things I will try to cover:
 
 1. My process of writing an SoP.
