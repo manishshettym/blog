@@ -21,14 +21,14 @@ When I applied, I also found it helpful to read similar posts describing what pr
 {: .fs-3 }
 
 #### Motivation
-My motivation with these posts is going primarily be to share my *unique experience* with grad school applications, published here to encourage and assist others when doing the same. I especially want to reach the many undergraduate students at lesser known universities in countries like India, encouraging them to consider research careers.
+My motivation with these posts is going to primarily be to share my *unique experience* with grad school applications, published here to encourage and assist others when doing the same. I especially want to reach the many undergraduate students at lesser known universities in countries like India, encouraging them to consider research careers.
 {: .fs-3 }
 
 #### About Me
 In 2020, I completed my undergraduate education in computer science at PES University, Bangalore, India. During undergrad, I got involved with multiple research projects and learnt what research entails. With a keen interest to explore it further, I worked at Microsoft Research (India) for 2+ years -- first as an Intern, and then as a pre-doctoral Research Fellow. 
 {: .fs-3 }
 
-During my time at MSR, I worked on a large projects that touched every aspect of the research cycle: ideation, design, experimentation, productization, and publishing. This experience was influential in me identifying that I want to pursue a career in research and deciding to applied to grad school. Moreover, the MSR experience was critical for me to narrow down to a research area of interest.
+During my time at MSR, I worked on a large projects that touched every aspect of the research cycle: ideation, design, experimentation, productization, and publishing. This experience was influential in me identifying that I want to pursue a career in research and deciding to apply to grad school. Moreover, the MSR experience was critical for me to narrow down to a research area of interest.
 {: .fs-3 }
 
 <!-- I'm starting graduate program at Berkeley.  -->
