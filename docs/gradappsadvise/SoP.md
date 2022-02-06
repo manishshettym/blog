@@ -3,12 +3,13 @@ layout: default
 title:  "The Statement of Purpose"
 parent: Grad School Applications
 categories: grad-apps
-published: false
+nav_order: 1
+published: true
 ---
 
 Work in Progress ...
 
-<div style="display:">
+<div style="display:none">
 I'm working on this post where I will describe my experience with writing a statement of purpose.
 Things I will try to cover:
 
