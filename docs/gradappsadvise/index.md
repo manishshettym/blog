@@ -3,7 +3,7 @@ layout: default
 title: Grad School Applications
 nav_order: 2
 has_children: true
-published: false
+published: true
 ---
 
 # CS Grad School Applications
