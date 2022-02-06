@@ -8,22 +8,23 @@ published: false
 
 Work in Progress ...
 
-<div style="display:none">
-Hey there!
-
+<div style="display:">
 I'm working on this post where I will describe my experience with writing a statement of purpose.
 Things I will try to cover:
 
 1. My process of writing an SoP.
 2. A simple SoP structure.
-3. What an SoP `should have`?
-4. What an SoP `should not have`?
+3. What an SoP `should have` & `should not have`?
 5. Other Links to "How to write a SoP", tips/tricks, tutorials, and guides.
 
 Progress: ![5%](https://progress-bar.dev/5)
 
 SoP Writing:
-There is a ton of advice out there on how-to-write-a-winning SoP, but I personally found it most
+
+
+There is a ton of advice on thei internet sharing sample SoPs, and
+
+ on how-to-write-a-winning SoP and share a bunch , but I personally found it most
 useful to start from scratch. 
 
 
