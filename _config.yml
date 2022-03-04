@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Manish's Blog
+title: latent reflections
 email: manish.shetty.m@outlook.com
 description: My attempt at blogging ;)
 baseurl: "/blog" # the subpath of your site, e.g. /blog
@@ -28,7 +28,7 @@ github_username:  manishshettym
 
 # Build settings
 remote_theme: pmarsceill/just-the-docs
-# theme: "just-the-docs"
+#theme: "just-the-docs"
 plugins:
   - jekyll-feed
 

@@ -9,33 +9,17 @@ published: true
 # CS Grad School Applications
 {: .fs-8 }
 
-Hey there! These are a series of blog posts where I will describe my experience with 2021-22 grad school applications. 
-[Here are some disclaimers before you go ahead with these posts](#disclaimers).
+Hey there! These are a series of blog posts where I will describe my experience with 2021-22 grad school applications. Let's start with some background and motivation, typical research paper style xD
 
-#### Motivation
-My motivation with these posts is going to primarily be to share my *unique experience* with grad school applications, published here to encourage and assist others when doing the same. I especially want to reach the many undergraduate students at lesser known universities in countries like India, encouraging them to consider research careers.
-{: .fs-3 }
+#### Personal History & Motivation
+In 2020, I completed my undergrad in CS at PES University, Bangalore, India. During undergrad, I was involved in some research projects and learnt what research entails. To explore it further, I worked at Microsoft Research (India) for 2+ years -- first as an Intern, and then as a pre-doctoral Research Fellow. 
 
-#### About Me
-In 2020, I completed my undergraduate education in computer science at PES University, Bangalore, India. During undergrad, I got involved with multiple research projects and learnt what research entails. With a keen interest to explore it further, I worked at Microsoft Research (India) for 2+ years -- first as an Intern, and then as a pre-doctoral Research Fellow. 
-{: .fs-3 }
-
-During my time at MSR, I worked on large projects that touched every aspect of the research cycle: ideation, design, experimentation, productization, and publishing. This experience was influential in me identifying that I want to pursue a career in research and deciding to apply to grad school. Moreover, the MSR experience was critical for me to narrow down to a research area of interest.
-{: .fs-3 }
+At MSR, I experienced all aspects of research: ideation, design, experimentation, productization, and publishing. This was influential in identifying my research interests and deciding to apply to PhD programs. I applied to grad school for Fall 2022, and received admits from 6/12 schools.
 
 <!-- I'm starting graduate program at Berkeley.  -->
-
-#### Other Resources
-When I applied, I also found it helpful to read similar posts describing what previous applicants, professors, etc. had to say. Here are **some more reliable resources** that I used that cover most of the advice on the internet:
-{: .fs-3 }
-
-1. [Kalpesh Krishna's](https://martiansideofthemoon.github.io/2018/05/29/grad-resources.html) compilation of guides, advice, and more.
-2. [Prof. Jean Yang's](https://jxyzabc.blogspot.com/2008/08/cs-grad-school-part-1-deciding-to-apply.html) experience and advice on the entire Ph.D. application process.
-3. [Prof. Harchol's (CMU)](http://www.cs.cmu.edu/~harchol/gradschooltalk.pdf) famous talk who should apply to grad school, what to expect, etc.
-{: .fs-3 }
+My motivation with this series is to primarily share ***my unique experience*** with these applications, assisting others in the process. I want to reach undergraduate students (especially at lesser known universities), encouraging them to consider research careers. When I applied, I found it helpful to read similar posts describing what previous applicants, professors, etc. had to say. Here are **some reliable resources** that I recommend covering most of the advice on the internet: [Kalpesh Krishna's compilation](https://martiansideofthemoon.github.io/2018/05/29/grad-resources.html), [Prof. Jean Yang's experience](https://jxyzabc.blogspot.com/2008/08/cs-grad-school-part-1-deciding-to-apply.html), [Prof. Harchol's (CMU) famous talk](http://www.cs.cmu.edu/~harchol/gradschooltalk.pdf).
 
 #### Disclaimers
 1. These posts describe a single individual's (me) experience ONLY and are not to be misconstrued as universal advice for any kind of success.
 2. My experience (as of today) is from an applicant's perspective ONLY, and hence, I cannot speak on what the admission commitee is looking for.
 3. My experience is limited to (a) Computer Science (b) Ph.D. applications to (c) US universities ONLY.
-{: .fs-3 }

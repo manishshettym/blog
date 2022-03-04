@@ -4,20 +4,13 @@ nav_order: 1
 layout: home
 ---
 
-Though I'm almost always involved in `"research-y"` 🔬 stuff, I have found it useful to jot down
-some thoughts on the way. Conversations with many have suggested that others might benefit in
-making this a public spectacle.
+# latent reflections
+<i>~ a computer science researcher writing about tech, academia, grad school, research, and more. <a href="https://twitter.com/manishshettym">@manishshettym</a> on Twitter; <a href="https://manishshettym.github.io">manishshettym.github.io</a></i>
 
-Consequently, this blog is my attempt to sporadically wrap my head around
-diverse experiences in research, academia, tech, travel, and life.
 
-<p style="color:red">For those who are interested in my work, publications, and code, try these routes instead:</p>
+While I hike my way through new trails, I have found it useful to write down some notes, thoughts, and opinions. It has at times helped me keep up with things, and consequently, keep up good spirits (we'll see how this goes xD).
 
-[My Website](https://manishshettym.github.io){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } 
-[My GitHub](https://github.com/manishshettym){: .btn .fs-5 .mb-4 .mb-md-0 }
+Conversations with many have suggested that others (mostly students) might benefit in making this a public spectacle. Thus beginneth another attempt at inconsistent writing to wrap my head around diverse experiences in research, academia, tech, travel, and life.
 
----
-
-## Recent/Upcoming Posts
-
-<!-- 1. [Reading Research Papers](/blog/docs/gradappsadvise/SoP.html) -->
+<p>For those who are interested in my work, publications, and software, try this route instead: 
+<a href="https://manishshettym.github.io">my website</a></p>
