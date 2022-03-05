@@ -7,56 +7,54 @@ nav_order: 1
 published: true
 ---
 
-Work in Progress ...
+# The Statement of Purpose
 
-<div style="display:none">
-I'm working on this post where I will describe my experience with writing a statement of purpose.
-Things I will try to cover:
+In regards to how to write a statement of purpose, I truly believe there is no recipe. However, what I can share
+are things that worked for me. So here are **5 factors** I think are important.
 
-1. My process of writing an SoP.
-2. A simple SoP structure.
-3. What an SoP `should have` & `should not have`?
-5. Other Links to "How to write a SoP", tips/tricks, tutorials, and guides.
-
-Progress: ![5%](https://progress-bar.dev/5)
-
-SoP Writing:
+***A. Writing Well***: This is obvious. But, make sure your idea of "well" is generally perceived the same. Some things too keep in mind: avoid passive voice, unnecessary adverbs, and flowery language.
 
 
-There is a ton of advice on thei internet sharing sample SoPs, and
-
- on how-to-write-a-winning SoP and share a bunch , but I personally found it most
-useful to start from scratch. 
+***B. Starting Early***: One thing that made me confident about my statement, was the time I spent baking it. Typical application deadlines are around mid December. I started working on my statement in `August (T-5 months)`. Now, this is unusually early for some, but being early => less stressful & more feedback.
 
 
-SoP Reviewing and Feedback:
+***C. Writing from Scratch***: One of the key things that helped me write my SoP, was actually writing it from scratch. One advantage of doing that is that your SoP, albeit technical, will sound personal. Here is how I went about writing from scratch:
 
-I think the most important part of "writing" is "re-writing better".
-In that regard, to polish any written material, feedback is critical. 
-I found feedback really useful during the application process (esp. for my SoP).
+**Phase 1: Concretize**
+1. Make a prioritized list of research projects `P`
+    1. Priority should consider `relevance` to the topics you want to pursue.
+    2. Priority should consider `recency`. No one cares about interests from back in the day.
+2. Pick `n` projects from `P`; `n <= 4`
+3. For each project: 
+    1. Dump an active voice recital of your experience: This should include (1) problem and motivation, (2) approach, (3) experiments that failed OR succeeded, (4) results and achievements. Again, I personally found it useful to write this as if I was reciting/sharing my experience to a technically sound person carefully listening to me.
+    2. Read and ensure YOUR contribution is clear. Showing that you more than just implemented someone else's ideas can be important.
+    3. Read again and refine
 
-But it is a given that you will hear contradictory arguments (just like paper reviews :P), that, at face value, will just
-further increase the uncertainity in this whole process.I hence found to CRITICAL to sieve this feedback for the chunks of 
-gold that would make or break my SoP. 
-
-To do that, I first created a priority order for the feedback I was looking for.
-This helped me pick-and-choose what I need to improve and what I can leave to keep the writing
-fresh and unique to my experiences. Let me go over my this priority order:
-
-
-1. My Own Feedback after a 10 day Marination:
-
-2. Feedback from Mentors (a.k.a Letter Writers)
-
-3. Feedback from PhD Students
-
-4. Feedback from Application Support Programs (3rd person):
-
-Find all the support programs from 2021-22 here [LINK]. 
-These should mostly be available for upcoming cycles.
+**Phase 2: Connect**: Draw your work into a narrative that connects these projects. The narrative should convey research vision and ability -- What plans do you have for your future? What are some questions that motivate you to get up and do research? Why are these questions important? Here, it is important to stay disciplined and not astray from the "purpose". More about how I did this in the next section.
 
 
+***D. Write about Research***: Keep your writing tight and about things that relate to your research abilities. One way to do this is to write solely about past research projects. But, it can get challenging to restrict your writing when you start to feel your SoP is bland. Consequently, you will most likely start to look for extraneous factors to connect the dots. <span style="color:red"><<*This is the point where you make or break your SoP*>></span>. Looking too hard for your "purpose" will naturally end up with you writing stories from when you were a tadpole or using flowery sentences. I overcame these obstacles by writing solely about research, but with *different abstractions*:
+1. Low Level: When I talked about experiences, I dove into technical details, methods, achievements, and more.
+2. High Level: Everywhere else, I wrote about research vision, research style, overarching questions, etc.
 
-</div>
+I believe this created a more readable and interesting statement for the reader to follow.
+
+***E. Get Feedback***: I think the most important part of "writing" is "re-writing better". In that regard, to polish any written material, feedback is critical. Once I had my first draft, I found it very usefuly to get feedback from multiple sources.
 
 
+<span style="color:red">Disclaimer</span>: You will hear contradictory arguments (just like paper reviews :P), that, at face value, will just further increase uncertainity in this whole process. I hence found to CRITICAL to sieve this feedback for chunks that would truly make or break my SoP. 
+
+To do that systematically, I followed a priority order for feedback. Here is the order I followed:
+
+1. Feedback from Yourself: This was by far the best feedback. Just revisiting a piece of writing after a while (1/2 weeks) gives you a lot of perspective and access to improvements. Listen to yourself and make the edits.
+
+2. Feedback from Mentors (a.k.a Letter Writers): These are the people who know your research the best (after you). Their advice on what aspects to focus on is especially useful.
+
+3. Feedback from PhD Students: These are folks who've swam across this river before. While their feedback is helpful, they might have very strong opinions on writing style. This is where you can start to filter more and just try to understand if the narrative has been conveyed.
+
+\+ other: Recently universities themselves have started to provide feedback via Application Support Programs. Here are all the [support programs from 2021-22](https://twitter.com/jbhuang0604/status/1446981455683407873?s=20&t=gkPnErn1NJgIc7uXRGoRcg). These should mostly be available for upcoming cycles as well.
+
+
+That should get you started. I hope this post has shared some new perspectives and approaches to systematically tackle some of your challenges. Good luck for your applications. 🤞
+
+#TODO: Upload my own SoP. Will do this soon.
