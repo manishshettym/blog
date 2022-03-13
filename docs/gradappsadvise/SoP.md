@@ -20,7 +20,7 @@ II. ***Starting Early***: One thing that made me confident about my statement, w
 
 III. ***Writing from Scratch***: One of the key things that helped me write my SoP was actually writing it from scratch. One advantage of doing that is that your SoP, albeit technical, will sound personal. I went about writing from scratch in 2 phases:
 
-1. **Phase 1: Concretize**
+- **Phase 1: Concretize**
     1. Make a prioritized list of research projects `P`
         1. Priority should consider `relevance` to the topics you want to pursue.
         2. Priority should consider `recency`. No one cares about interests from back in the day.
