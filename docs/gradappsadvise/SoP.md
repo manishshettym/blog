@@ -3,11 +3,11 @@ layout: default
 title:  "The Statement of Purpose"
 parent: Grad School Applications
 categories: grad-apps
-nav_order: 1
+nav_order: 3
 published: true
 ---
 
-# The Statement of Purpose
+# the statement of purpose
 
 I truly believe there is no recipe on to how to write a statement of purpose. However, what I can share
 are things that worked for me. So here are **5 factors** I think are important.

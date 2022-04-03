@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Grad School Applications
-nav_order: 2
+nav_order: 1
 has_children: true
 published: true
 ---
 
-# CS Grad School Applications
+# CS grad school applications
 {: .fs-8 }
 
 Hey there! These are a series of blog posts where I will describe my experience with 2021-22 grad school applications. Let's start with some background and motivation, typical research paper style xD
