@@ -18,7 +18,7 @@ For those hiring, research experience can be the best (and also easiest to acces
 
 While `1.` is important, it is simply a summary of your achievements. Research is generally more than just what you achieved -- it involves experiments, engagement, leadership, collaboration, great ideas and those that failed. These are all aspects the admission committee (read professors) want to know to understand you. Some of this can be stated in `2.`, but it will still be a first person account, and hence, cover limited facets of your experience. This is where letters of reference (usually 3) help -- collectively vouching for your experience and highlighting various abilities. Here, your aim should be to get "good" letters of recommendation, and not three.
 
-## The letter writer conundrum
+## The letter-writer conundrum
 
 Every applicant will ask themselves a question during this process: *"Who should I get letters from?"* Now, this can be challenging for various reasons: You may not know 3 professors/researchers who can vouch for you; You might know 3 writers, but your relationships are not research related; Your writiers were not deep contacts, and most probably will write superficial stuff about you; Your letter writers may have never written an LoR before!!!
 
