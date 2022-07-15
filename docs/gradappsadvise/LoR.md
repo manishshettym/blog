@@ -20,7 +20,7 @@ While `1.` is important, it is simply a summary of your achievements. Research i
 
 ## The letter-writer conundrum
 
-Every applicant will ask themselves a question during this process: *"Who should I get letters from?"* Now, this can be challenging for various reasons: You may not know 3 professors/researchers who can vouch for you; You might know 3 writers, but your relationships are not research related; Your writiers were not deep contacts, and most probably will write superficial stuff about you; Your letter writers may have never written an LoR before!!!
+Every applicant will ask themselves a question during this process: *"Who should I get letters from?"* Now, this can be challenging for various reasons: You may not know 3 professors/researchers who can vouch for you; You might know 3 writers, but your relationships are not research related; Your writers were not deep contacts, and most probably will write superficial stuff about you; Your letter writers may have never written an LoR before!!!
 
 To simplify this, the most important thing to remember is that your letters must **collectively** document a story about you. This means that each letter individually need not be PERFECT. It also means that all three letters do not have to talk about how amazing your research skills are -- some can talk more about leadership during a paper, planning a project, presentations, and much more that is still relevant to pursuing a PhD. Finally, this implies that all 3 of your writers do not need to be deep research contacts from top institutions or professors. A quality letter from any writer is better than a superficial one from from a well-known professor.
 
@@ -51,16 +51,16 @@ Here, your request email must covers two aspects:
 
 P.S. Think about both these aspects clearly before sending a request. If you are finding it hard to justify why X can be a strong letter-writer for you, you might want to revisit your optimization problem and find alternate solutions. :)
 
-P.P.S. Unfortunately, many people (professors included, but especially non-professors) do not know how to write very good letters that serve the purpose of PhD applications. Therefore, if you can or if they request for, please try help your letter-writers with some material such as [Graduate School Recommendations Advice](https://cs.brown.edu/~sk/Memos/Grad-School-Recos/) by Prof. Shiram.
+P.P.S. Unfortunately, many people (professors included, but especially non-professors) do not know how to write very good letters that serve the purpose of PhD applications. Therefore, if you can or if they request for, please try help your letter-writers with some material such as [Graduate School Recommendations Advice](https://cs.brown.edu/~sk/Memos/Grad-School-Recos/) by Prof. Shriram.
 
 
 ## Keeping Track
 
-Letter-writers can be notorious at submitting letters at the last minute! xD So keeping track of things on your end is the best way of overcoming any confusion and challenges. A simple way is to maintain a checklist for you letter. For e.g., I maintained checkboxes for letters within my application management sheet (refer [Appplication Managmenet](./AppMgmt.html) for more on this), as shown below: 
+Letter-writers can be notorious at submitting letters at the last minute! xD So keeping track of things on your end is the best way of overcoming any confusion and challenges. A simple way is to maintain a checklist for you letter. For e.g., I maintained checkboxes for letters within my application management sheet (refer [Application Management](./AppMgmt.html) for more on this), as shown below: 
 
 <img src="images/sample_mgmt.png" style="border: 1px solid;">
 
-On top of this, you can schedule timely reminders to your writers as you get closer to the dealines. Ensure your reminder email summarizes the universities completed and the universities remaining on your list.
+On top of this, you can schedule timely reminders to your writers as you get closer to the deadlines. Ensure your reminder email summarizes the universities completed and the universities remaining on your list.
 
 
 That covers my experience with letter of recommendation! Cheers!! 🥂
