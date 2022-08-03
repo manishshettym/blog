@@ -5,7 +5,7 @@ layout: home
 ---
 
 # latent reflections
-<i>~ a computer science researcher writing about tech, academia, grad school, research, and more. <a href="https://twitter.com/manishshettym">@manishshettym</a> on Twitter; <a href="https://manishshettym.github.io">manishshettym.github.io</a></i>
+<i>~ a computer science researcher writing about tech, academia, grad school, research, and more. <a href="https://twitter.com/slimshetty_">@slimshetty_</a> on Twitter; <a href="https://manishshettym.github.io">manishshettym.github.io</a></i>
 
 
 While I hike my way through new trails, I have found it useful to write down some notes, thoughts, and opinions. It has at times helped me keep up with things, and consequently, keep up good spirits (we'll see how this goes xD).
