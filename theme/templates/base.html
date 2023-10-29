@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    {# favicon #}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.ico">
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITETITLE }}" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITETITLE }}" />
+    {% endif %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITETITLE }}" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITETITLE }}" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITETITLE }} {{ category.name }} category feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITETITLE }} {{ category.name }} category feed" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM.format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITETITLE }} {{ tag.name }} tag feed" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS.format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITETITLE }} {{ tag.name }} tag feed" />
+    {% endif %}
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" type="text/css" />
+    <link rel="preload" href="{{ SITEURL }}/fonts/et-bembo-roman-line-figures/et-bembo-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
+    <link rel="canonical" href="{{ SITEURL }}/{% if article is defined %}{{ article.url }}{% elif page is defined %}{{ page.url }}{% else %}{{ SITEURL }}{% endif %}">
+    <meta property="og:url" content="{{ SITEURL }}/{% if article is defined %}{{ article.url }}{% elif page is defined %}{{ page.url }}{% else %}{{ SITEURL }}{% endif %}">
+    <link rel="author" href="{{ SITEURL }}/about/">
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="title" content="{{ self.og_title() }}" />
+    <meta name="description" content="{% block meta_description %}{{ SITEMETA }}{% endblock meta_description %}" />
+    <meta property="og:description" content="{{ self.meta_description() }}">
+    <meta property="og:site_name" content="{{ SITETITLE }}">
+    <meta property="og:title" content="{% block og_title %}{{ SITENAME }}{% endblock og_title %}">
+    <meta property="og:image" content="{% block og_image %}{{ SITEURL }}/images/eric_head.jpg{% endblock og_image %}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="{{ TWITTER_HANDLE }}">
+    <meta name="twitter:site" content="{{ TWITTER_HANDLE }}">
+    {%- endblock head %}
+</head>
+<body>
+    <aside id="asidebar">
+        <div id="logo">
+            <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ LOGO }}" alt="your-domain.com logo" /></a>
+        </div>
+        <nav class="main-menu">
+            {% include 'partials/main_nav.html' %}
+        </nav>
+
+        {% include 'partials/social.html' %}
+    </aside>
+    <main>
+        {%- block content -%}{%- endblock %}
+
+        {% if DISPLAY_FOOTER or DISPLAY_FOOTER is not defined %}
+        <footer>
+            {% include 'partials/copyright.html' %}
+        </footer>
+        {% endif %}
+    </main>
+</body>
+</html>

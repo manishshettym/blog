@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Tags | {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<article>
+    <header>
+        <h1>Tags</h1>
+        <p><span class="newthought">See also: <a href="{{ SITEURL }}/categories/">categories</a> or <a href="{{ SITEURL }}/scrivings/">vault</a></span></p>
+    </header>
+    <section>
+        <ul class="vault">
+            {% for tag, articles in tags|sort %}
+            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
+            {% endfor %}
+        </ul>
+    </section>
+</article>
+{% endblock %}
