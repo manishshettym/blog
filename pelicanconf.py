@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Your Name'
-SITENAME = u'Your Name'
-SITETITLE = u'your-domain.com | Your Name'
-SITEURL = ''
+AUTHOR = u'Manish Shetty'
+SITENAME = u'Manish Shetty'
+SITETITLE = u'manishs.org | Manish'
+SITEURL = 'https://manishs.org/blog'
 
 PATH = 'content'
 
