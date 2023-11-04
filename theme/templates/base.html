@@ -31,6 +31,9 @@
     {% if TAG_FEED_RSS and tag %}
     <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS.format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITETITLE }} {{ tag.name }} tag feed" />
     {% endif %}
+    {% if MERMAID %}
+    {% include 'mermaid.html' %}
+    {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" type="text/css" />
     <link rel="preload" href="{{ SITEURL }}/fonts/et-bembo-roman-line-figures/et-bembo-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
     <link rel="canonical" href="{{ SITEURL }}/{% if article is defined %}{{ article.url }}{% elif page is defined %}{{ page.url }}{% else %}{{ SITEURL }}{% endif %}">
