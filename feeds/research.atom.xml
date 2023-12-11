@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Shetty - Research</title><link href="https://manishs.org/blog/" rel="alternate"></link><link href="https://manishs.org/blog/feeds/research.atom.xml" rel="self"></link><id>https://manishs.org/blog/</id><updated>2023-10-30T13:09:00-07:00</updated><entry><title>Idempotence and Recovery</title><link href="https://manishs.org/blog/scrivings/idempotence-and-recovery/" rel="alternate"></link><published>2023-10-30T13:09:00-07:00</published><updated>2023-10-30T13:09:00-07:00</updated><author><name>Manish Shetty</name></author><id>tag:manishs.org,2023-10-30:/blog/scrivings/idempotence-and-recovery/</id><summary type="html">&lt;section&gt;
+&lt;p&gt;Recovery capability is an important aspect of modern systems.
+In most cases, recovery is used to repair the state of the program in the rare event that an execution
+failure occurs.&lt;/p&gt;
+&lt;p&gt;Checkpoints provide a simple way to implement recovery.
+However, they have several challenges:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Checkpointing entire program state is expensive …&lt;/li&gt;&lt;/ol&gt;&lt;/section&gt;</summary><content type="html">&lt;section&gt;
+&lt;p&gt;Recovery capability is an important aspect of modern systems.
+In most cases, recovery is used to repair the state of the program in the rare event that an execution
+failure occurs.&lt;/p&gt;
+&lt;p&gt;Checkpoints provide a simple way to implement recovery.
+However, they have several challenges:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Checkpointing entire program state is expensive.&lt;/li&gt;
+&lt;li&gt;They have limited application visibility and often end up being overly aggresive in saving more state than necessary.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To address these challenges, we could study the core property that 
+enables simple recovery via re-execution: &lt;strong&gt;idempotence&lt;/strong&gt;.&lt;label for="sn-demo" class="margin-toggle sidenote-number"&gt;&lt;/label&gt;
+&lt;input type="checkbox" id="sn-demo" class="margin-toggle"/&gt;
+&lt;span class="sidenote"&gt;
+  There are approaches like &lt;em&gt;transactional semantics&lt;/em&gt; that can be used to implement efficient recovery.
+  However, they require the programming language to support a specific programming model.
+&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Idempotence is the property of a program that re-execution is free of side-effects.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In contrast, to explicit checkpointing, idempotence allows the architecture state
+at the beginning of a code region to be used as an implicit checkpoint (that is never saved).
+On execution failure, idempotence allows repairing the state via a simple re-execution.&lt;/p&gt;
+&lt;p&gt;The definition of idempotence looks simple, but is not easy to apply in practice.
+Particularly challenging is the fact that most real-world programs are not &lt;em&gt;completely&lt;/em&gt; idempotent;
+they have some side-effects. Let&amp;rsquo;s define side-effects more formally.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section&gt;
+&lt;h2&gt;Side-effects&lt;/h2&gt;
+&lt;p&gt;A side-effect is a change in the state of the program that is not visible to the caller.
+For instance, consider the following code snippet:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The function &lt;code&gt;foo&lt;/code&gt; has no side-effects, since it manipulates only the arguments passed to it. In contrast, consider the following code snippet:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;
+    &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this version of the function &lt;code&gt;bar&lt;/code&gt; we have added a global variable &lt;code&gt;total&lt;/code&gt; outside of the function that is modified. This creates a side effect, since the function now affects something outside of its immeditate scope.&lt;/p&gt;
+&lt;p&gt;Real-world programs look more like &lt;code&gt;bar&lt;/code&gt;. They have side-effects that are not visible to the caller. Does this mean that we cannot use idempotence to implement recovery in real-world programs? Not necessarily.&lt;/p&gt;
+&lt;/section&gt;
+&lt;!-- https://research.cs.wisc.edu/vertical/papers/2012/pldi12-idem.pdf --&gt;
+
+&lt;section&gt;
+&lt;h2&gt;Idempotence modulo side-effects&lt;/h2&gt;
+&lt;p&gt;To make idempotence practical for recovery, we can weaken it in the following ways to be applicable in programs with side-effects:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;allow idempotent side-effects.&lt;/li&gt;
+&lt;li&gt;allow partial idempotence.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;1. Idempotent Side-Effects&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Note, that idempotence is a property of a program&amp;rsquo;s &lt;strong&gt;re-execution&lt;/strong&gt;. This means that we can use idempotence, if we can ensure that the re-execution of a program is side-effect free. More generally, we can weaken this definition to state the following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the re-execution of a program has the &lt;em&gt;same&lt;/em&gt; side-effects as the original execution then the program is idempotent.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That is to say, if the side-effects of a program are idempotent, then the program is idempotent. For instance, consider the following code snippet:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;setx&lt;/code&gt; has a side-effect because it modifies a global variable &lt;code&gt;x&lt;/code&gt;. However, it is idempotent because multiple executions has the same effect on the system state as the first application.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Partial Idempotence&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The second way to weaken idempotence is to allow partial idempotence. That is to say, if we are looking to use idempotence for recovery, we can allow regions of the program to be idempotent. For instance, consider the following code snippet:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;list_push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The semantics of the function clearly preclude idempotence: even if there is no overflow, re-executing the function will put the element to the end of an &lt;em&gt;already modified&lt;/em&gt; list (after the element that was pushed during the original execution).&lt;/p&gt;
+&lt;p&gt;However, there are regions of the program that are idempotent. For instance, we could split the function into 3 regions as in the control flow graph below:&lt;/p&gt;
+&lt;pre class="mermaid"&gt;
+flowchart TD
+    a["`o = len(a) == 10 
+    if o: a = b`"] --&amp;gt; b["`a = b`"]
+    a["`o = len(a) == 10 
+    if o: a = b`"] --&amp;gt; c["`a.append(n)`"]
+    b["`a = b`"] --&amp;gt; c["`a.append(n)`"]
+&lt;/pre&gt;
+&lt;/section&gt;
+&lt;section&gt;
+&lt;h2&gt;Idempotent Code Regions&lt;/h2&gt;
+&lt;p&gt;We can define idempotent code regions as follows:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A region of code (assume linear instruction sequence for now) is idempotent if
+the effect of executing the region multiple times is identical to executing
+it once.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;An intuitive way to think about this is &lt;strong&gt;&lt;em&gt;a region that does not overwrite its inputs&lt;/em&gt;&lt;/strong&gt;.
+A region that overwrites its inputs will read the overwritten values on re-execution, changing its behavior.
+But what are the inputs of a region?&lt;/p&gt;
+&lt;p&gt;&lt;subsection markdown="1"&gt;&lt;/p&gt;
+&lt;h3&gt;Region Inputs and Dependencies&lt;/h3&gt;
+&lt;p&gt;Region Inputs are variables that are &lt;em&gt;LIVE-IN&lt;/em&gt; to the region; i.e., live at the entry of the region.
+Such a variable has a definition that reaches the region&amp;rsquo;s entry and has some use within the region.&lt;/p&gt;
+&lt;p&gt;By definition of liveness, region inputs have a &lt;strong&gt;RAW&lt;/strong&gt;&lt;label for="sn-demo" class="margin-toggle sidenote-number"&gt;&lt;/label&gt;
+&lt;input type="checkbox" id="sn-demo" class="margin-toggle"/&gt;
+&lt;span class="sidenote"&gt;
+    Read-After-Write (RAW) dependency is between a definition and following use of a variable.
+    A.K.A &lt;em&gt;flow dependency&lt;/em&gt;.
+&lt;/span&gt;
+dependency that spans the region&amp;rsquo;s entry.
+However, because the definition the variable must be defined before entry, the definition is not inside the region,
+and hence no definition precedes the first use of the variable.&lt;/p&gt;
+&lt;pre class="mermaid"&gt;
+classDiagram
+    Observation : A region input has no RAW dependency\n before the first use of that variable in the region\n*
+&lt;/pre&gt;
+&lt;p&gt;Since region inputs are live at the entry of a region, and have no RAW dependency before the first use,
+any overwriting of the variable will have to occur after the first use of the variable.&lt;/p&gt;
+&lt;p&gt;In other words, an overwriting of region inputs has a &lt;strong&gt;WAR&lt;/strong&gt;&lt;label for="sn-demo" class="margin-toggle sidenote-number"&gt;&lt;/label&gt;
+&lt;input type="checkbox" id="sn-demo" class="margin-toggle"/&gt;
+&lt;span class="sidenote"&gt;
+    Write-After-Read (WAR) dependency is between a use and a following (re-)definition of a variable.
+    A.K.A &lt;em&gt;anti-dependency&lt;/em&gt;.
+&lt;/span&gt;
+dependency after the absence of a RAW dependency.&lt;/p&gt;
+&lt;pre class="mermaid"&gt;
+classDiagram
+    Observation : Overwriting a region input has a WAR dependency\n after the absence of a RAW dependency\n*
+&lt;/pre&gt;
+&lt;p&gt;&lt;/subsection&gt;&lt;/p&gt;
+&lt;p&gt;The table below summarizes the relationship between dependencies and idempotence.&lt;/p&gt;
+&lt;style&gt;
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
+  border: 1px solid black;
+  padding: 8px;
+}
+&lt;/style&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Dependency&lt;/th&gt;
+            &lt;th&gt;RAW&lt;/th&gt;
+            &lt;th&gt;RAW-&amp;gt;WAR&lt;/th&gt;
+            &lt;th&gt;WAR&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Example&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;x = 1&lt;br&gt;y = x&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;x = 1&lt;br&gt;y = x&lt;br&gt;x = 2&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;y = x&lt;br&gt;x = 2&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Idempotent?&lt;/td&gt;
+            &lt;td&gt;Yes&lt;/td&gt;
+            &lt;td&gt;Yes&lt;/td&gt;
+            &lt;td&gt;No&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;From the above, we can see that one can identify a idempotent code regions by looking for regions that have no WAR dependencies after the absence of a RAW dependency.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Idempotence is a powerful property that can be used to implement recovery.
+However, it is not easy to apply in practice due to the presence of side-effects in real-world programs.
+In this post, we have explored the definition of idempotence and how it can be applied to real-world programs. Particularly, we have seen that idempotence can be applied to regions of code that do not overwrite their inputs. We have also explored a simple way to identify such regions but leave implementing it as a static analysis for a future post.&lt;/p&gt;
+&lt;/section&gt;</content><category term="Research"></category><category term="none"></category></entry></feed>
