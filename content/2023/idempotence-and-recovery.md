@@ -1,7 +1,7 @@
 Title: Idempotence and Recovery
 Date: 2023-10-30 13:09
 Category: Research
-Tags: none
+Tags: PL, Program Analysis, Static Analysis, Program Recovery, Idempotence
 Description: Thoughts on finding idempotent program regions for safer recovery.
 Status: Published
 

@@ -96,10 +96,10 @@ MENUITEMS = [
 ]
 
 SOCIAL = (
-    ("GitHub", "https://github.com/your-handle"),
-    ("LinkedIn", "https://www.linkedin.com/in/you/"),
-    ("Flickr", "https://www.flickr.com/photos/your/albums"),
+    ("Twitter", "https://twitter.com/slimshetty_"),
+    ("GitHub", "https://github.com/manishshettym"),
+    ("LinkedIn", "https://www.linkedin.com/in/manishshettym/"),
 )
 
-TWITTER_HANDLE = "@YourHandle"
+TWITTER_HANDLE = "@slimshetty_"
 SITEMETA = "Your description here"
