@@ -183,4 +183,4 @@ th, td {
 &lt;p&gt;Idempotence is a powerful property that can be used to implement recovery.
 However, it is not easy to apply in practice due to the presence of side-effects in real-world programs.
 In this post, we have explored the definition of idempotence and how it can be applied to real-world programs. Particularly, we have seen that idempotence can be applied to regions of code that do not overwrite their inputs. We have also explored a simple way to identify such regions but leave implementing it as a static analysis for a future post.&lt;/p&gt;
-&lt;/section&gt;</content><category term="Research"></category><category term="none"></category></entry></feed>
+&lt;/section&gt;</content><category term="Research"></category><category term="PL"></category><category term="Program Analysis"></category><category term="Static Analysis"></category><category term="Program Recovery"></category><category term="Idempotence"></category></entry></feed>
