@@ -1,6 +1,6 @@
 Title: Hello, World
 Date: 2023-10-28
-Category: None
+Category: Random
 Tags: none
 Status: Published
 Description: Your site is published!
