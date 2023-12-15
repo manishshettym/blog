@@ -62,23 +62,16 @@ DSPy also automatically compiles quality few-shot prompts for your program, so y
 teleprompter = BootstrapFewShot(metric=is_valid)
 reviewer = teleprompter.compile(Reviewer(), trainset=io_pairs)
 ```
-</section>
 
-<section markdown="1">
+### Reflection: Is this a good reviewer? 🤔
 
-## Reflection: Is this a good reviewer? 🤔
-
-<img src="./images/lgtm.jpeg" alt="drawing" width="250" style="float: right; border: dashed;"/>
+<img src="./images/lgtm.jpeg" alt="drawing" width="30%" height="20%" style="float: right;"/>
 It is relatively easy to write a valid review for a PR. 
 
 But, a good reviewer writes _concise_, _constructive_, and _informative_ reviews. The question is, __how do we capture and ensure these properties in a program?__
 
-</section>
 
-
-<section markdown="1">
-
-## "Sketching" the Solution (pun intended)
+### "Sketching" the Solution (pun intended)
 
 In traditional program synthesis, particularly in sketching [[Solar-Lezama, 2008]](https://people.csail.mit.edu/asolar/papers/thesis.pdf), developers provide a high-level outline of a program— a __sketch__—along with a set of __assertions__ that specify the desired behavior. The synthesizer then fills in the details, turning the sketch into a fully-fledged program that adheres to the assertions.
 
@@ -96,15 +89,12 @@ without overthinking the implementation details.
 
 __Why not guide DSPy with assertions?__
 
-</section>
 
-<section markdown=1>
-
-## Introducing DSPy Assertions
+### Introducing DSPy Assertions
 
 We introduce to DSPy: __LM Assertions__.
 As simple as one-liners, they are assertion style constraints on LM outputs.
-We distinguish two types of constraints: __Assert__ (hard) and __Suggest__ (soft):
+We distinguish two types of constraints: `Assert` (hard) and `Suggest` (soft):
 ```python
 dspy.Assert(constraint: bool, message: str)
 dspy.Suggest(constraint: bool, message: str)
@@ -143,9 +133,9 @@ class Reviewer(dspy.Module):
 
 That's it! We can now use DSPy to compile a reviewer that satisfies these assertions and suggestions. Our paper evaluates these new constructs and finds that resulting programs are more robust and performant!
 
-## Conclusion
+### Conclusion
 
-DSPy assertions are a powerful tool for guiding LMs toward desired outputs.
+LM assertions are simple powerful constructs for guiding LMs toward desired outputs.
 There are natural connections between traditional program synthesis and self-refining LM programs with assertions.
 We are excited to explore these connections further and build a next-generation programming paradigm.
 
