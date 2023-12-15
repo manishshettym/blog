@@ -104,15 +104,11 @@ Let&rsquo;s build a simple ubercool LM program.</p>
 <span class="n">reviewer</span> <span class="o">=</span> <span class="n">teleprompter</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">Reviewer</span><span class="p">(),</span> <span class="n">trainset</span><span class="o">=</span><span class="n">io_pairs</span><span class="p">)</span>
 </code></pre></div>
 
-</section>
-<section>
-<h2>Reflection: Is this a good reviewer? 🤔</h2>
-<p><img src="./images/lgtm.jpeg" alt="drawing" width="250" style="float: right; border: dashed;"/>
+<h3>Reflection: Is this a good reviewer? 🤔</h3>
+<p><img src="./images/lgtm.jpeg" alt="drawing" width="30%" height="20%" style="float: right;"/>
 It is relatively easy to write a valid review for a PR. </p>
 <p>But, a good reviewer writes <em>concise</em>, <em>constructive</em>, and <em>informative</em> reviews. The question is, <strong>how do we capture and ensure these properties in a program?</strong></p>
-</section>
-<section>
-<h2>&ldquo;Sketching&rdquo; the Solution (pun intended)</h2>
+<h3>&ldquo;Sketching&rdquo; the Solution (pun intended)</h3>
 <p>In traditional program synthesis, particularly in sketching <a href="https://people.csail.mit.edu/asolar/papers/thesis.pdf">[Solar-Lezama, 2008]</a>, developers provide a high-level outline of a program— a <strong>sketch</strong>—along with a set of <strong>assertions</strong> that specify the desired behavior. The synthesizer then fills in the details, turning the sketch into a fully-fledged program that adheres to the assertions.</p>
 <blockquote>
 <p>Assertions in a sketch enable you to express intuitive insights 
@@ -125,12 +121,10 @@ without overthinking the implementation details.</p>
     It takes a program specification (<code>Reviewer</code>) and a set of I/O pairs (<code>io_pairs</code>) and returns a tuned program (prompt) that satisfies the spec.
 </span></p>
 <p><strong>Why not guide DSPy with assertions?</strong></p>
-</section>
-<section>
-<h2>Introducing DSPy Assertions</h2>
+<h3>Introducing DSPy Assertions</h3>
 <p>We introduce to DSPy: <strong>LM Assertions</strong>.
 As simple as one-liners, they are assertion style constraints on LM outputs.
-We distinguish two types of constraints: <strong>Assert</strong> (hard) and <strong>Suggest</strong> (soft):</p>
+We distinguish two types of constraints: <code>Assert</code> (hard) and <code>Suggest</code> (soft):</p>
 <div class="highlight"><pre><span></span><code><span class="n">dspy</span><span class="o">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
 <span class="n">dspy</span><span class="o">.</span><span class="n">Suggest</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
@@ -165,8 +159,8 @@ During recovery, the construct uses reflective information to self-correct and c
 </code></pre></div>
 
 <p>That&rsquo;s it! We can now use DSPy to compile a reviewer that satisfies these assertions and suggestions. Our paper evaluates these new constructs and finds that resulting programs are more robust and performant!</p>
-<h2>Conclusion</h2>
-<p>DSPy assertions are a powerful tool for guiding LMs toward desired outputs.
+<h3>Conclusion</h3>
+<p>LM assertions are simple powerful constructs for guiding LMs toward desired outputs.
 There are natural connections between traditional program synthesis and self-refining LM programs with assertions.
 We are excited to explore these connections further and build a next-generation programming paradigm.</p>
 <p>Read more in our <a href="https://github.com/stanfordnlp/dspy/blob/main/DSPy_Assert.pdf">paper</a> and checkout our <a href="https://github.com/stanfordnlp/dspy/blob/main/dspy/primitives/assertions.py">Github</a>.</p>
