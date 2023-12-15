@@ -64,7 +64,7 @@ reviewer = teleprompter.compile(Reviewer(), trainset=io_pairs)
 
 ## Reflection: Is this a good reviewer? 🤔
 
-<img src="/images/lgtm.jpeg" alt="drawing" width="200" style="float: right; border: dashed;"/>
+<img src="./images/lgtm.jpeg" alt="drawing" width="200" style="float: right; border: dashed;"/>
 It is relatively easy to write a valid review for a PR. 
 
 But, a good reviewer is writes _concise_, _constructive_, and _informative_ reviews. The question is, __how do we capture and ensure these properties in a program?__
