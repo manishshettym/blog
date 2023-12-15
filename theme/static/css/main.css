@@ -596,7 +596,8 @@ section {
 }
 
 p, ol, ul {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
+    font-size: 1.2rem;
     line-height: 2rem;
 }
 
@@ -633,7 +634,8 @@ blockquote > footer > cite {
 
 blockquote {
     margin: 1.4rem 40px;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
+    font-size: 1.2rem;
     padding-left: 1.4rem;
     border-left: 2px solid rgba(17, 17, 17, 0.1);
 }
