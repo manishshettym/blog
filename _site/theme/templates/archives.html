@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Vault | {{ SITENAME }}{% endblock %}
+{% block content %}
+    <article>
+        <header>
+        <h1>Vault</h1>
+            <p><span class="newthought">See also: <a href="{{ SITEURL }}/categories/">categories</a> or <a href="{{ SITEURL }}/tags/">tags</a></span></p>
+        </header>
+        <section>
+            {# based on http://stackoverflow.com/questions/12764291/jinja2-group-by-month-year #}
+            {%- for year, year_group in dates|groupby('date.year')|reverse %}
+                {% for month, month_group in year_group|groupby('date.month')|reverse %}
+                    <h2>{{ (month_group|first).date|strftime('%B %Y') }}</h2>
+                    <ul class="vault">
+                    {% for article in month_group %}
+                        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% endfor %}
+        </section>
+    </article>
+{% endblock %}

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "blognew"
+version = "0.1.0"
+description = ""
+authors = ["manishshettym <manishs@berkeley.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pelican = "^4.8.0"
+markdown = "^3.5"
+webassets = "^2.0"
+pelican-render-math = "^1.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
