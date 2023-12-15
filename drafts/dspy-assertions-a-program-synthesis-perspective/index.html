@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Scrivings tagged "Static Analysis"  | Manish Shetty</title>
+    <title>DSPy Assertions: A Program Synthesis Perspective | Manish Shetty</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://manishs.org/blog/favicon.ico">
 <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
@@ -19,20 +19,26 @@
     mermaid.initialize({ ...defaults, ...true });
 </script>    <link rel="stylesheet" href="https://manishs.org/blog/theme/css/main.css" type="text/css" />
     <link rel="preload" href="https://manishs.org/blog/fonts/et-bembo-roman-line-figures/et-bembo-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
-    <link rel="canonical" href="https://manishs.org/blog/https://manishs.org/blog">
-    <meta property="og:url" content="https://manishs.org/blog/https://manishs.org/blog">
+    <link rel="canonical" href="https://manishs.org/blog/drafts/dspy-assertions-a-program-synthesis-perspective/">
+    <meta property="og:url" content="https://manishs.org/blog/drafts/dspy-assertions-a-program-synthesis-perspective/">
     <link rel="author" href="https://manishs.org/blog/about/">
     <meta name="author" content="Manish Shetty" />
-    <meta name="title" content="Home | Your Name" />
-    <meta name="description" content="Your description here" />
-    <meta property="og:description" content="Your description here">
+    <meta name="title" content="DSPy Assertions: A Program Synthesis Perspective" />
+    <meta name="description" content="META" />
+    <meta property="og:description" content="META">
     <meta property="og:site_name" content="manishs.org | Manish">
-    <meta property="og:title" content="Home | Your Name">
+    <meta property="og:title" content="DSPy Assertions: A Program Synthesis Perspective">
     <meta property="og:image" content="https://manishs.org/blog/images/eric_head.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:creator" content="@slimshetty_">
     <meta name="twitter:site" content="@slimshetty_">
-    <meta name="robots" content="noindex" /></head>
+
+    <meta name="robots" content="noindex" />
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2023-12-15T06:31:00.000000">
+    <meta property="article:author" content="Manish Shetty" />
+    <meta property="article:section" content="Dross" />
+</head>
 <body>
     <aside id="asidebar">
         <div id="logo">
@@ -49,17 +55,27 @@
     <li><a href="https://github.com/manishshettym" title="GitHub" target=_blank rel="noopener"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wMQBSkoPIUbOQAAAWNJREFUOMuVk7FKQzEUhr970UmXDklG26UKFfUFFCm+gopTJx0UHOpWfAAdHBx00CfQDvoAHUR0FRSk6NI6JpkEnapel3NLCLXUA4F7kv//85+TcxMkjNJY7zBKV4A9YBmYkuM34AY4st4951iAJCJfAGsMj0vr3XrOSQLyC1BmtHi13k0bpUmF3BTyE1ADugJ8l4Xs1QRTNko3cwdzwKOAzq13W8OuNkqfAZuSzqdAPTgfG8F+iKknRulu0O1J4DPv8IDbASaAj/x1EqP0j7zGl/VufJQOGqV74iRLgewf9uMyshToBMpVsflnCUbparDVSYFW4OIaKEaEUKMIXAV5KzFKF8XFPlABNoAHYNd6dy9CS8AxsBCZKuWjfAJsA7PyH5SAFeA7qLkXkU+tdzvhKN8CM8Aq4Kx37aj+LEjvrHeL/fLyD6P0gVE6i8B9AVmHISceEozSBaN0Y4BAwyhdiMm/6K92B5mUXmkAAAAASUVORK5CYII=" alt="GitHub"></a></li>
     <li><a href="https://www.linkedin.com/in/manishshettym/" title="LinkedIn" target=_blank rel="noopener"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wMSEiICt6p2WgAAARdJREFUOMudU0GKg0AQrJ7VQ25pCQSEfCDfyKs2ePC0z/EHOUZy8g85iXgwigddxNrTDGui7JqCgammp6Z7ukZU9RPAF97DWVSVlokISK5SMHaTZRnyPEeSJOsFRARhGML3fRyPx1VVGAAgiTRNUZYlLpcLROQlkeSssHsDY4xLIAljjNsDQBzH8DwPURRNhVSV2+2Wj8eD4zjydrtN+P1+5zAMHMfRrd1uR1WlqtLMlfobh8PBVWNxvV5fp7CEqqoQBAGCIEBRFACA/X7vLvpTwB4SEeR5vuyDJdR17abS9/16gX878V14tr+2bQEAXde9cIuu69A0Ddq2dW1NPhPJiQuf+VzsY7PZfAM42UomNp2x9FPs/AN6xJlXb4YRtgAAAABJRU5ErkJggg==" alt="LinkedIn"></a></li>
 </ul>    </aside>
-    <main>    <article class="intro">
-        <header><h1>Scrivings tagged <em>Static Analysis</em></h1>
-            <p><span class="newthought">See also: <a href="https://manishs.org/blog/tags/">all tags</a></span>
-        </header>
-        <section>
+    <main>            <article>
+                <header>
+                    <h1>
+                        <a href="https://manishs.org/blog/drafts/dspy-assertions-a-program-synthesis-perspective/" rel="bookmark" class="no-line" title="Permanent link to &quot;DSPy Assertions: A Program Synthesis Perspective&quot;">DSPy Assertions: A Program Synthesis Perspective</a> &mdash; DRAFT                     </h1>
 
-            <p class="list"><a href="https://manishs.org/blog/scrivings/idempotence-and-recovery/">Idempotence and Recovery</a><br><em>October 30, 2023</em><br>Thoughts on finding idempotent program regions for safer recovery.
-            </p>
-        </section>
-    </article>
+                    <p><span class="newthought">Manish Shetty</span></p>
+                    <p><span class="newthought">December 15, 2023</span></p>
+                        <p><span class="newthought">Filed under &ldquo;<a href="https://manishs.org/blog/categories/dross/" rel="tag">Dross</a>&rdquo;</span></p>
+                </header>
 
+                <section>
+<h2>Subtitle</h2>
+</section>
+
+                <section>
+                    <hr><p>This is a draft. Please send me <em>any</em> thoughts you have. Thanks!
+                </section>
+                <footer class="de-emphasize">
+                    <p>Finalized at 6:31 AM.
+                </footer>
+            </article>
         <footer>
 <p class="de-emphasize copyright">&copy;2019&ndash;2023 Your Name. All rights reserved.        </footer>
     </main>
