@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Your Name</title>
+    <title>DSPy Assertions: A PR Reviewer&#39;s POV | Manish Shetty</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://manishs.org/blog/favicon.ico">
 <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
@@ -19,19 +19,27 @@
     mermaid.initialize({ ...defaults, ...true });
 </script>    <link rel="stylesheet" href="https://manishs.org/blog/theme/css/main.css" type="text/css" />
     <link rel="preload" href="https://manishs.org/blog/fonts/et-bembo-roman-line-figures/et-bembo-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
-    <link rel="canonical" href="https://manishs.org/blog/https://manishs.org/blog">
-    <meta property="og:url" content="https://manishs.org/blog/https://manishs.org/blog">
+    <link rel="canonical" href="https://manishs.org/blog/scrivings/dspy-assertions-a-pr-reviewers-pov/">
+    <meta property="og:url" content="https://manishs.org/blog/scrivings/dspy-assertions-a-pr-reviewers-pov/">
     <link rel="author" href="https://manishs.org/blog/about/">
     <meta name="author" content="Manish Shetty" />
-    <meta name="title" content="Home | Your Name" />
-    <meta name="description" content="Your description here" />
-    <meta property="og:description" content="Your description here">
+    <meta name="title" content="DSPy Assertions: A PR Reviewer&#39;s POV" />
+    <meta name="description" content="Deep connections between traditional program synthesis and self-refining LM programs with assertions." />
+    <meta property="og:description" content="Deep connections between traditional program synthesis and self-refining LM programs with assertions.">
     <meta property="og:site_name" content="manishs.org | Manish">
-    <meta property="og:title" content="Home | Your Name">
+    <meta property="og:title" content="DSPy Assertions: A PR Reviewer&#39;s POV">
     <meta property="og:image" content="https://manishs.org/blog/images/eric_head.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:creator" content="@slimshetty_">
-    <meta name="twitter:site" content="@slimshetty_"></head>
+    <meta name="twitter:site" content="@slimshetty_">
+    <meta name="keywords" content="DSPy,LLM,Assertions,Program Recovery,Program Synthesis,PL" />
+    <meta property="article:tag" content="DSPy,LLM,Assertions,Program Recovery,Program Synthesis,PL" />
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2023-12-15T06:31:00.000000">
+    <meta property="article:author" content="Manish Shetty" />
+    <meta property="article:section" content="Research" />
+</head>
 <body>
     <aside id="asidebar">
         <div id="logo">
@@ -51,7 +59,7 @@
     <main>            <article>
                 <header>
                     <h1>
-                        <a href="https://manishs.org/blog/scrivings/dspy-assertions-a-pr-reviews-pov/" rel="bookmark"  title="Permanent link to &quot;DSPy Assertions: A PR Review's POV&quot;">DSPy Assertions: A PR Review's POV</a>                    </h1>
+                        <a href="https://manishs.org/blog/scrivings/dspy-assertions-a-pr-reviewers-pov/" rel="bookmark" class="no-line" title="Permanent link to &quot;DSPy Assertions: A PR Reviewer's POV&quot;">DSPy Assertions: A PR Reviewer's POV</a>                    </h1>
 
                     <p><span class="newthought">Manish Shetty</span></p>
                     <p><span class="newthought">December 15, 2023</span></p>
@@ -84,7 +92,7 @@ Let&rsquo;s build a simple ubercool LM program.</p>
 
 <p>You could use this program as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="n">reviewer</span> <span class="o">=</span> <span class="n">Reviewer</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">reviewer</span><span class="p">(</span><span class="n">pr</span><span class="o">=</span><span class="s2">&quot;def add(a, b): return a - b&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">reviewer</span><span class="p">(</span><span class="n">pr</span><span class="o">=</span><span class="s2">&quot;def add(a, b): return a + b&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">review</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 
 <span class="c1"># review: ... could be improved by renaming </span>
@@ -128,7 +136,7 @@ without overthinking the implementation details.</p>
 </section>
 <section>
 <h2>Introducing DSPy Assertions</h2>
-<p>We introduce to DSPy: <strong>LM Assertions</strong>.
+<p>We introduce a new weapon to DSPy: <strong>LM Assertions</strong>.
 As simple as one-liners, they are assertion style constraints on LM outputs.
 We distinguish two types of constraints: <strong>Assert</strong> (hard) and <strong>Suggest</strong> (soft):</p>
 <div class="highlight"><pre><span></span><code><span class="n">dspy</span><span class="o">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
@@ -177,210 +185,7 @@ We are excited to explore these connections further and build a next-generation 
                     <p>Finalized at 6:31 AM.
                     <p>Tagged with
                     <a href="https://manishs.org/blog/tags/dspy/" class="tags">DSPy</a>,                     <a href="https://manishs.org/blog/tags/llm/" class="tags">LLM</a>,                     <a href="https://manishs.org/blog/tags/assertions/" class="tags">Assertions</a>,                     <a href="https://manishs.org/blog/tags/program-recovery/" class="tags">Program Recovery</a>,                     <a href="https://manishs.org/blog/tags/program-synthesis/" class="tags">Program Synthesis</a>, and                     <a href="https://manishs.org/blog/tags/pl/" class="tags">PL</a>.                </footer>
-            </article><hr class="separator">            <article>
-                <header>
-                    <h1>
-                        <a href="https://manishs.org/blog/scrivings/idempotence-and-recovery/" rel="bookmark"  title="Permanent link to &quot;Idempotence and Recovery&quot;">Idempotence and Recovery</a>                    </h1>
-
-                    <p><span class="newthought">Manish Shetty</span></p>
-                    <p><span class="newthought">October 30, 2023</span></p>
-                        <p><span class="newthought">Filed under &ldquo;<a href="https://manishs.org/blog/categories/research/" rel="tag">Research</a>&rdquo;</span></p>
-                </header>
-
-                <section>
-<p>Recovery capability is an important aspect of modern systems.
-In most cases, recovery is used to repair the state of the program in the rare event that an execution
-failure occurs.</p>
-<p>Checkpoints provide a simple way to implement recovery.
-However, they have several challenges:</p>
-<ol>
-<li>Checkpointing entire program state is expensive.</li>
-<li>They have limited application visibility and often end up being overly aggresive in saving more state than necessary.</li>
-</ol>
-<p>To address these challenges, we could study the core property that 
-enables simple recovery via re-execution: <strong>idempotence</strong>.<label for="sn-demo" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sn-demo" class="margin-toggle"/>
-<span class="sidenote">
-  There are approaches like <em>transactional semantics</em> that can be used to implement efficient recovery.
-  However, they require the programming language to support a specific programming model.
-</span></p>
-<blockquote>
-<p>Idempotence is the property of a program that re-execution is free of side-effects.</p>
-</blockquote>
-<p>In contrast, to explicit checkpointing, idempotence allows the architecture state
-at the beginning of a code region to be used as an implicit checkpoint (that is never saved).
-On execution failure, idempotence allows repairing the state via a simple re-execution.</p>
-<p>The definition of idempotence looks simple, but is not easy to apply in practice.
-Particularly challenging is the fact that most real-world programs are not <em>completely</em> idempotent;
-they have some side-effects. Let&rsquo;s define side-effects more formally.</p>
-</section>
-<section>
-<h2>Side-effects</h2>
-<p>A side-effect is a change in the state of the program that is not visible to the caller.
-For instance, consider the following code snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-</code></pre></div>
-
-<p>The function <code>foo</code> has no side-effects, since it manipulates only the arguments passed to it. In contrast, consider the following code snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">total</span>
-    <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-    <span class="k">return</span> <span class="n">total</span>
-</code></pre></div>
-
-<p>In this version of the function <code>bar</code> we have added a global variable <code>total</code> outside of the function that is modified. This creates a side effect, since the function now affects something outside of its immeditate scope.</p>
-<p>Real-world programs look more like <code>bar</code>. They have side-effects that are not visible to the caller. Does this mean that we cannot use idempotence to implement recovery in real-world programs? Not necessarily.</p>
-</section>
-<!-- https://research.cs.wisc.edu/vertical/papers/2012/pldi12-idem.pdf -->
-
-<section>
-<h2>Idempotence modulo side-effects</h2>
-<p>To make idempotence practical for recovery, we can weaken it in the following ways to be applicable in programs with side-effects:</p>
-<ol>
-<li>allow idempotent side-effects.</li>
-<li>allow partial idempotence.</li>
-</ol>
-<p><strong>1. Idempotent Side-Effects</strong></p>
-<p>Note, that idempotence is a property of a program&rsquo;s <strong>re-execution</strong>. This means that we can use idempotence, if we can ensure that the re-execution of a program is side-effect free. More generally, we can weaken this definition to state the following:</p>
-<blockquote>
-<p>If the re-execution of a program has the <em>same</em> side-effects as the original execution then the program is idempotent.</p>
-</blockquote>
-<p>That is to say, if the side-effects of a program are idempotent, then the program is idempotent. For instance, consider the following code snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-</code></pre></div>
-
-<p><code>setx</code> has a side-effect because it modifies a global variable <code>x</code>. However, it is idempotent because multiple executions has the same effect on the system state as the first application.</p>
-<p><strong>2. Partial Idempotence</strong></p>
-<p>The second way to weaken idempotence is to allow partial idempotence. That is to say, if we are looking to use idempotence for recovery, we can allow regions of the program to be idempotent. For instance, consider the following code snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">def</span> <span class="nf">list_push</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">o</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-    <span class="k">if</span> <span class="n">o</span><span class="p">:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
-    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div>
-
-<p>The semantics of the function clearly preclude idempotence: even if there is no overflow, re-executing the function will put the element to the end of an <em>already modified</em> list (after the element that was pushed during the original execution).</p>
-<p>However, there are regions of the program that are idempotent. For instance, we could split the function into 3 regions as in the control flow graph below:</p>
-<pre class="mermaid">
-flowchart TD
-    a["`o = len(a) == 10 
-    if o: a = b`"] --&gt; b["`a = b`"]
-    a["`o = len(a) == 10 
-    if o: a = b`"] --&gt; c["`a.append(n)`"]
-    b["`a = b`"] --&gt; c["`a.append(n)`"]
-</pre>
-</section>
-<section>
-<h2>Idempotent Code Regions</h2>
-<p>We can define idempotent code regions as follows:</p>
-<blockquote>
-<p>A region of code (assume linear instruction sequence for now) is idempotent if
-the effect of executing the region multiple times is identical to executing
-it once.</p>
-</blockquote>
-<p>An intuitive way to think about this is <strong><em>a region that does not overwrite its inputs</em></strong>.
-A region that overwrites its inputs will read the overwritten values on re-execution, changing its behavior.
-But what are the inputs of a region?</p>
-<p><subsection markdown="1"></p>
-<h3>Region Inputs and Dependencies</h3>
-<p>Region Inputs are variables that are <em>LIVE-IN</em> to the region; i.e., live at the entry of the region.
-Such a variable has a definition that reaches the region&rsquo;s entry and has some use within the region.</p>
-<p>By definition of liveness, region inputs have a <strong>RAW</strong><label for="sn-demo" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sn-demo" class="margin-toggle"/>
-<span class="sidenote">
-    Read-After-Write (RAW) dependency is between a definition and following use of a variable.
-    A.K.A <em>flow dependency</em>.
-</span>
-dependency that spans the region&rsquo;s entry.
-However, because the definition the variable must be defined before entry, the definition is not inside the region,
-and hence no definition precedes the first use of the variable.</p>
-<pre class="mermaid">
-classDiagram
-    Observation : A region input has no RAW dependency\n before the first use of that variable in the region\n*
-</pre>
-<p>Since region inputs are live at the entry of a region, and have no RAW dependency before the first use,
-any overwriting of the variable will have to occur after the first use of the variable.</p>
-<p>In other words, an overwriting of region inputs has a <strong>WAR</strong><label for="sn-demo" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sn-demo" class="margin-toggle"/>
-<span class="sidenote">
-    Write-After-Read (WAR) dependency is between a use and a following (re-)definition of a variable.
-    A.K.A <em>anti-dependency</em>.
-</span>
-dependency after the absence of a RAW dependency.</p>
-<pre class="mermaid">
-classDiagram
-    Observation : Overwriting a region input has a WAR dependency\n after the absence of a RAW dependency\n*
-</pre>
-<p></subsection></p>
-<p>The table below summarizes the relationship between dependencies and idempotence.</p>
-<style>
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  text-align: center;
-  border: 1px solid black;
-  padding: 8px;
-}
-</style>
-<table>
-    <thead>
-        <tr>
-            <th>Dependency</th>
-            <th>RAW</th>
-            <th>RAW-&gt;WAR</th>
-            <th>WAR</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Example</td>
-            <td><code>x = 1<br>y = x</code></td>
-            <td><code>x = 1<br>y = x<br>x = 2</code></td>
-            <td><code>y = x<br>x = 2</code></td>
-        </tr>
-        <tr>
-            <td>Idempotent?</td>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>No</td>
-        </tr>
-    </tbody>
-</table>
-<p>From the above, we can see that one can identify a idempotent code regions by looking for regions that have no WAR dependencies after the absence of a RAW dependency.</p>
-</section>
-<section>
-<h2>Conclusion</h2>
-<p>Idempotence is a powerful property that can be used to implement recovery.
-However, it is not easy to apply in practice due to the presence of side-effects in real-world programs.
-In this post, we have explored the definition of idempotence and how it can be applied to real-world programs. Particularly, we have seen that idempotence can be applied to regions of code that do not overwrite their inputs. We have also explored a simple way to identify such regions but leave implementing it as a static analysis for a future post.</p>
-</section>
-
-
-                <footer class="de-emphasize">
-                    <p>Finalized at 1:09 PM.
-                    <p>Tagged with
-                    <a href="https://manishs.org/blog/tags/pl/" class="tags">PL</a>,                     <a href="https://manishs.org/blog/tags/program-analysis/" class="tags">Program Analysis</a>,                     <a href="https://manishs.org/blog/tags/static-analysis/" class="tags">Static Analysis</a>,                     <a href="https://manishs.org/blog/tags/program-recovery/" class="tags">Program Recovery</a>, and                     <a href="https://manishs.org/blog/tags/idempotence/" class="tags">Idempotence</a>.                </footer>
             </article>
-
-    <article>
-        <footer class="paginator">                <span class="hide">Retreat into the past&nbsp;&rarr;</span>                
-
-
-   <a href="https://manishs.org/blog/page/2">Retreat into the past&nbsp;&rarr;</a>
-        </footer>
-    </article>
-
         <footer>
 <p class="de-emphasize copyright">&copy;2019&ndash;2023 Your Name. All rights reserved.        </footer>
     </main>

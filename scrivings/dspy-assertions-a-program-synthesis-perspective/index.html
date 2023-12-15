@@ -67,9 +67,10 @@
                 </header>
 
                 <section>
-<p>Prompting and its engineering first emerged as a way of interacting with LMs due to 
-chat being the primary application of LMs. It involves brittle and error-prone natural language statements used to guide the LM to a desired output.</p>
-<p>However, for many tasks, more context aware models could skip chatting altogether. That leads us to the question: <strong>how can we program LMs without prompting?</strong></p>
+<p>Prompting emerged as a way to &ldquo;interact&rdquo; with LMs due to the naturalness of language.
+We soon realized one needs to &ldquo;engineer&rdquo; their prompts to get desired outputs from these stochastic machines. <em>While interactions are natural and imprecise, engineering is anything but.</em></p>
+<p>Mixing the medium for interaction and engineering results in hand-crafted <code>prompt templates</code>—an error-prone practice, often verbose, and doesn’t always generalize.</p>
+<p>That leads us to the question: <strong>How can we program LMs without prompting?</strong></p>
 <p>Language model (LM) programs are a programming paradigm that
 combines the precision of conventional programming with the flexibility of
 LMs. <a href="https://github.com/stanfordnlp/dspy">DSPy</a> is a framework for creating such programs declaratively, with automatic prompt tuning through compilation.
@@ -80,7 +81,7 @@ LMs. <a href="https://github.com/stanfordnlp/dspy">DSPy</a> is a framework for c
 </span>
 Let&rsquo;s build a simple ubercool LM program.</p>
 <h3>PR Reviewer with DSPy</h3>
-<p>This program reviews a github pull request:</p>
+<p>This program reviews a GitHub pull request:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Reviewer</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">gen_review</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">ChainOfThought</span><span class="p">(</span><span class="s2">&quot;pull_request -&gt; review, status&quot;</span><span class="p">)</span>
@@ -103,6 +104,8 @@ Let&rsquo;s build a simple ubercool LM program.</p>
 <label for="sn-demo" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sn-demo" class="margin-toggle"/>
 <span class="sidenote">
+    Imagine collecting a few hundred I/O pairs from GitHub PRs and compiling a reviewer that is robust to unseen PRs. 🤩 
+    </br></br>
     In the code, <code>is_valid</code> is the optimizer metric and could be a fuzzy string match or an LLM call that checks the review&rsquo;s validity.
 </span></p>
 <div class="highlight"><pre><span></span><code><span class="n">teleprompter</span> <span class="o">=</span> <span class="n">BootstrapFewShot</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="n">is_valid</span><span class="p">)</span>
@@ -112,46 +115,45 @@ Let&rsquo;s build a simple ubercool LM program.</p>
 </section>
 <section>
 <h2>Reflection: Is this a good reviewer? 🤔</h2>
-<p><img src="./images/lgtm.jpeg" alt="drawing" width="200" style="float: right; border: dashed;"/>
+<p><img src="./images/lgtm.jpeg" alt="drawing" width="250" style="float: right; border: dashed;"/>
 It is relatively easy to write a valid review for a PR. </p>
-<p>But, a good reviewer is writes <em>concise</em>, <em>constructive</em>, and <em>informative</em> reviews. The question is, <strong>how do we capture and ensure these properties in a program?</strong></p>
+<p>But, a good reviewer writes <em>concise</em>, <em>constructive</em>, and <em>informative</em> reviews. The question is, <strong>how do we capture and ensure these properties in a program?</strong></p>
 </section>
 <section>
 <h2>&ldquo;Sketching&rdquo; the Solution (pun intended)</h2>
-<p>In traditional program synthesis, particularly in the context of sketching, developers provide a high-level outline of a program— a <strong>sketch</strong>—along with a set of <strong>assertions</strong> that specify the desired behavior. The synthesizer then fills in the details, turning the sketch into a fully-fledged program that adheres to the assertions.</p>
+<p>In traditional program synthesis, particularly in sketching <a href="https://people.csail.mit.edu/asolar/papers/thesis.pdf">[Solar-Lezama, 2008]</a>, developers provide a high-level outline of a program— a <strong>sketch</strong>—along with a set of <strong>assertions</strong> that specify the desired behavior. The synthesizer then fills in the details, turning the sketch into a fully-fledged program that adheres to the assertions.</p>
 <blockquote>
-<p>Assertions in a sketch allow expresssing intuitive insights 
-without having to think too much about the details of the implementation.</p>
+<p>Assertions in a sketch enable you to express intuitive insights 
+without overthinking the implementation details.</p>
 </blockquote>
-<p>By now, one might see that DSPy is a sophisticated program synthesizer at it&rsquo;s core. 
+<p>💡 Wait? By now, we know that DSPy is a sophisticated program synthesizer at its core. 
 <label for="sn-demo" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sn-demo" class="margin-toggle"/>
 <span class="sidenote">
-    It takes a program specification (<code>Reviewer</code>) and a set of I/O pairs (<code>io_pairs</code>), and returns a tuned program (prompt) that satisfies the spec.
+    It takes a program specification (<code>Reviewer</code>) and a set of I/O pairs (<code>io_pairs</code>) and returns a tuned program (prompt) that satisfies the spec.
 </span></p>
-<p><strong>Why not guide DSPy with assertions too?</strong></p>
+<p><strong>Why not guide DSPy with assertions?</strong></p>
 </section>
 <section>
 <h2>Introducing DSPy Assertions</h2>
 <p>We introduce a new weapon to DSPy: <strong>LM Assertions</strong>.
 As simple as one-liners, they are assertion style constraints on LM outputs.
 We distinguish two types of constraints: <strong>Assert</strong> (hard) and <strong>Suggest</strong> (soft):</p>
-<div class="highlight"><pre><span></span><code><span class="n">dspy</span><span class="o">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">backtrack</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Module</span><span class="p">])</span>
-<span class="n">dspy</span><span class="o">.</span><span class="n">Suggest</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">backtrack</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Module</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">dspy</span><span class="o">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+<span class="n">dspy</span><span class="o">.</span><span class="n">Suggest</span><span class="p">(</span><span class="n">constraint</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Unlike regular assertions, LM assertions are more than just monitors.
-If the constraint is violated, the execution is paused, and the LM program
+On violating the constraint, the execution pauses, and the LM program
 attempts to recover from the violation by backtracking to the failing module.
-It uses introspective information to self-correct and continue execution.
+During recovery, the construct uses reflective information to self-correct and continue execution. <code>Asserts</code> fail the program if irrecoverable, while <code>Suggests</code> continue execution.
 <label for="sn-demo" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sn-demo" class="margin-toggle"/> 
 <span class="sidenote">
-    Read more about how this works in our <a href="https://github.com/stanfordnlp/dspy/blob/main/DSPy_Assert.pdf">paper</a>.
+    More about how this works in our <a href="https://github.com/stanfordnlp/dspy/blob/main/DSPy_Assert.pdf">paper</a>.
     This <a href="https://twitter.com/lateinteraction/status/1735326551393161563">tweet</a> is also a great start.
 </span></p>
-<h4>LM Assertions for a Good Reviewer 🤩</h4>
-<p>Here&rsquo;s how we can use a few LM assertions to build a good reviewer:</p>
+<p>Here&rsquo;s how we can use a few LM assertions to build our &ldquo;good&rdquo; reviewer:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Reviewer</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">gen_review</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">ChainOfThought</span><span class="p">(</span><span class="s2">&quot;pull_request -&gt; review, status&quot;</span><span class="p">)</span>
@@ -170,12 +172,11 @@ It uses introspective information to self-correct and continue execution.
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div>
 
-<p>That&rsquo;s it! We can now use DSPy as before to compile a reviewer that satisfies these assertions and suggestions.
-Our evaluations show that resulting programs are not just more robust but also more performant.</p>
+<p>That&rsquo;s it! We can now use DSPy to compile a reviewer that satisfies these assertions and suggestions. Our paper evaluates these new constructs and finds that resulting programs are more robust and performant!</p>
 <h2>Conclusion</h2>
 <p>DSPy assertions are a powerful tool for guiding LMs toward desired outputs.
 There are natural connections between traditional program synthesis and self-refining LM programs with assertions.
-We are excited to explore these connections further and build a next generation programming paradigm.</p>
+We are excited to explore these connections further and build a next-generation programming paradigm.</p>
 <p>Read more in our <a href="https://github.com/stanfordnlp/dspy/blob/main/DSPy_Assert.pdf">paper</a> and checkout our <a href="https://github.com/stanfordnlp/dspy/blob/main/dspy/primitives/assertions.py">Github</a>.</p>
 </section>
 
