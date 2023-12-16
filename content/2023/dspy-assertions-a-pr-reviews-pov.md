@@ -4,6 +4,7 @@ Category: Research
 Tags: DSPy, LLM, Assertions, Program Recovery, Program Synthesis, PL
 Description: Deep connections between traditional program synthesis and self-refining LM programs with assertions.
 Status: Published
+Card: dspy-assertions-a-pr-reviews-pov.png
 
 <section markdown="1">
 
