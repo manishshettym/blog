@@ -93,6 +93,7 @@ EXTRA_PATH_METADATA = {
 # Theme extras
 MENUITEMS = [
     ("Vault", "scrivings/"),
+    ("Tags", "tags/"),
 ]
 
 SOCIAL = (

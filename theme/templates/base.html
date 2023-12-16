@@ -34,6 +34,9 @@
     {% if MERMAID %}
     {% include 'mermaid.html' %}
     {% endif %}
+    {% if TWITTER_CARD_USE %}
+    {% include 'twitter_card.html' %}
+    {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" type="text/css" />
     <link rel="preload" href="{{ SITEURL }}/fonts/et-bembo-roman-line-figures/et-bembo-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
     <link rel="canonical" href="{{ SITEURL }}/{% if article is defined %}{{ article.url }}{% elif page is defined %}{{ page.url }}{% else %}{{ SITEURL }}{% endif %}">
