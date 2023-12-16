@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Shetty - Random</title><link href="https://manishs.org/blog/" rel="alternate"></link><link href="https://manishs.org/blog/feeds/random.atom.xml" rel="self"></link><id>https://manishs.org/blog/</id><updated>2023-10-28T00:00:00-07:00</updated><entry><title>Hello, World</title><link href="https://manishs.org/blog/scrivings/hello-world/" rel="alternate"></link><published>2023-10-28T00:00:00-07:00</published><updated>2023-10-28T00:00:00-07:00</updated><author><name>Manish Shetty</name></author><id>tag:manishs.org,2023-10-28:/blog/scrivings/hello-world/</id><content type="html">&lt;section&gt;
-&lt;h2&gt;Hello World&lt;/h2&gt;
-&lt;p&gt;This is my blog&amp;rsquo;s hello world!&lt;/p&gt;
-&lt;/section&gt;</content><category term="Random"></category><category term="none"></category></entry></feed>
