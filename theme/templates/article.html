@@ -11,9 +11,8 @@
     <meta name="robots" content="noindex" />
     {% endif %}
     <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ article.title | e }}">
-    <meta property="og:description" content="{{ article.description | e }}">
-    <meta property="og:image" content="{{ SITEURL }}/social-cards/{{ article.card }}">
+    <meta property="og:image" content="{{ SITEURL }}/images/social-cards/scrivings-{{ article.card }}">
+    <meta property="twitter:image" content="{{ SITEURL }}/images/social-cards/scrivings-{{ article.card }}">
     <meta property="article:published_time" content="{{ article.date.strftime('%Y-%m-%dT%H:%M:%S.%f') }}">
     {% if article.modified %}
     <meta property="article:modified_time" content="{{ article.modified.strftime('%Y-%m-%dT%H:%M:%S.%f') }}">

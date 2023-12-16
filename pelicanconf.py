@@ -90,7 +90,7 @@ CATEGORIES_URL = "categories"
 TAGS_SAVE_AS = "tags/index.html"
 TAGS_URL = "tags/"
 
-STATIC_PATHS = ["images", "static", "fonts", "social-cards"]
+STATIC_PATHS = ["images", "static", "fonts"]
 
 EXTRA_PATH_METADATA = {
     "static/robots.txt": {"path": "robots.txt"},
@@ -113,6 +113,7 @@ TWITTER_HANDLE = "@slimshetty_"
 SITEMETA = "Your description here"
 
 ### Social Cards ###
+SOCIAL_CARDS_PATH = "images/social-cards/"
 SOCIAL_CARDS_TEMPLATE = "content/images/card-template.png"
 SOCIAL_CARDS_FONT_FILENAME = "/Users/manishs/Projects/personal/blog/content/fonts/et-bembo-bold-line-figures/et-bembo-bold-line-figures.ttf"
 SOCIAL_CARDS_CANVAS_LEFT = 150
